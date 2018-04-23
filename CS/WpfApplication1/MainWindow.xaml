@@ -1,0 +1,57 @@
+﻿<Window x:Class="WpfApplication1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dxsch="http://schemas.devexpress.com/winfx/2008/xaml/scheduler"
+        Title="MainWindow" Height="491" Width="691" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button x:Name="bthPreview" Content="Print Preview" Click="bthPreview_Click"/>
+        <dxsch:SchedulerControl Grid.Row="1" x:Name="scheduler" 
+                                ActiveViewType="Week"
+                                GroupType="Resource">
+            <dxsch:SchedulerControl.Storage>
+                <dxsch:SchedulerStorage>
+                    <dxsch:SchedulerStorage.AppointmentStorage>
+                        <dxsch:AppointmentStorage>
+                            <dxsch:AppointmentStorage.Mappings>
+                                <dxsch:AppointmentMapping 
+                                    Start="StartTime" 
+                                    End="EndTime" 
+                                    AllDay="AllDay"
+                                    Description="Description"
+                                    Label="Label"
+                                    Location="Location"
+                                    Subject="Subject" 
+                                    RecurrenceInfo="RecurrenceInfo"
+                                    ReminderInfo="ReminderInfo"
+                                    Status="Status"
+                                    Type="EventType"/>
+                            </dxsch:AppointmentStorage.Mappings>
+                        </dxsch:AppointmentStorage>
+                    </dxsch:SchedulerStorage.AppointmentStorage>
+
+                    <dxsch:SchedulerStorage.ResourceStorage>
+                        <dxsch:ResourceStorage>
+                            <dxsch:ResourceStorage.Mappings>
+                                <dxsch:ResourceMapping Caption="Model" Id="ID"/>
+                            </dxsch:ResourceStorage.Mappings>
+                        </dxsch:ResourceStorage>
+                    </dxsch:SchedulerStorage.ResourceStorage>
+                </dxsch:SchedulerStorage>
+            </dxsch:SchedulerControl.Storage>
+            
+            <dxsch:SchedulerControl.WeekView>
+                <dxsch:WeekView ResourcesPerPage="3"></dxsch:WeekView>
+            </dxsch:SchedulerControl.WeekView>
+            
+            <dxsch:SchedulerControl.OptionsView>
+                <dxsch:OptionsView FirstDayOfWeek="Tuesday"/>
+            </dxsch:SchedulerControl.OptionsView>
+        </dxsch:SchedulerControl>
+        <dxsch:DXSchedulerControlPrintAdapter x:Name="printAdapter" 
+                                              SchedulerControl="{Binding ElementName=scheduler}"/>
+    </Grid>
+</Window>
