@@ -1,3 +1,9 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [MainWindow.xaml](./CS/SchedulerPrintPreviewSample/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/SchedulerPrintPreviewSample/MainWindow.xaml))
+* [MainWindow.xaml.cs](./CS/SchedulerPrintPreviewSample/MainWindow.xaml.cs) (VB: [MainWindow.xaml](./VB/SchedulerPrintPreviewSample/MainWindow.xaml))
+<!-- default file list end -->
 # How to create a scheduler report and show it in the Print Preview dialog
 
 
